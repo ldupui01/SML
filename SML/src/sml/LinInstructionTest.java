@@ -23,7 +23,17 @@ public class LinInstructionTest {
 
 	@Test
 	public final void testExecute() {
-		fail("Not yet implemented"); // TODO
+		//expected
+		int expected = 5;
+		
+		//input
+		Machine m = new Machine();
+		m.setRegisters(new Registers());
+		lin.execute(m);
+		int actual = m.getRegisters().getRegister(0);
+		
+		//test
+		assertEquals(expected, actual);
 	}
 
 	@Test
