@@ -7,6 +7,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import sml.Machine;
+
 /**
  * @author Guilherme
  *
@@ -26,7 +28,10 @@ public class MachineTest {
 	 */
 	@Test
 	public final void testMain() {
-		fail("Not yet implemented"); // TODO
+		String[] textArray = new String[2];
+		textArray[0] = "testMML.txt";
+		textArray[1] = "testMML2.txt";
+		Machine.main(textArray);
 	}
 
 	/**

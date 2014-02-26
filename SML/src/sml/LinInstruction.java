@@ -10,6 +10,7 @@ public class LinInstruction extends Instruction {
 	private int register;
 	private int value;
 
+	//completely unnecessary code ?
 	public LinInstruction(String label, String opcode) {
 		super(label, opcode);
 	}
