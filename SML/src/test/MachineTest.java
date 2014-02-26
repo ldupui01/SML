@@ -30,7 +30,7 @@ public class MachineTest {
 	public final void testMain() {
 		String[] textArray = new String[2];
 		textArray[0] = "testMML.txt";
-		textArray[1] = "testMML2.txt";
+		textArray[1] = "testMML2.txt";//note : is this how the registers should be referenced ? as integers? that would make sense
 		Machine.main(textArray);
 	}
 
