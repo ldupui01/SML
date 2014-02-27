@@ -27,5 +27,5 @@ public abstract class Instruction {
 
 	// Execute this instruction on machine m.
 
-	public abstract void execute(Machine m);
+	public abstract void execute(MachineInterface m);
 }

@@ -24,7 +24,7 @@ public class AddInstruction extends Instruction {
 	}
 
 	@Override
-	public void execute(Machine m) {
+	public void execute(MachineInterface m) {
 		int value1 = m.getRegisters().getRegister(op1);
 		int value2 = m.getRegisters().getRegister(op2);
 		m.getRegisters().setRegister(result, value1 + value2);

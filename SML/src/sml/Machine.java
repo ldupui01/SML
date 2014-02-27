@@ -8,7 +8,7 @@ import lombok.Data;
  * The machine language interpreter
  */
 @Data
-public class Machine {
+public class Machine implements MachineInterface {
 	// The labels in the SML program, in the order in which
 	// they appear (are defined) in the program
 
@@ -34,7 +34,7 @@ public class Machine {
 
 	public static void main(String[] args) {
 
-		Machine m = new Machine();
+		MachineInterface m = new Machine();
 		Translator t = new Translator(args[0]);
 		t.readAndTranslate(m.getLabels(), m.getProg());
 
@@ -63,6 +63,10 @@ public class Machine {
 	// Execute the program in prog, beginning at instruction 0.
 	// Precondition: the program and its labels have been store properly.
 
+	/* (non-Javadoc)
+	 * @see sml.MachineInterface#execute()
+	 */
+	@Override
 	public void execute() {
 		setPc(0);
 		setRegisters(new Registers());

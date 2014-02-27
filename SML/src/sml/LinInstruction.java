@@ -25,7 +25,7 @@ public class LinInstruction extends Instruction {
 	}
 
 	@Override
-	public void execute(Machine m) {
+	public void execute(MachineInterface m) {
 		m.getRegisters().setRegister(register, value);
 	}
 

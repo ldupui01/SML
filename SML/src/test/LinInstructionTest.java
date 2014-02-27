@@ -1,9 +1,16 @@
-package sml;
+package test;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import sml.Instruction;
+import sml.LinInstruction;
+import sml.Machine;
+import sml.MachineInterface;
+import sml.Registers;
 
 public class LinInstructionTest {
 	Instruction lin;
@@ -24,7 +31,7 @@ public class LinInstructionTest {
 	@Test
 	public final void testExecute() {
 		//mocking
-		Machine m = mock(Machine.class);
+		MachineInterface m = mock(MachineInterface.class);
 		Registers r = mock(Registers.class);
 		when(m.getRegisters()).thenReturn(r);
 	
