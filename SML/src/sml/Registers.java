@@ -11,7 +11,7 @@ import lombok.Data;
  */
 
 @Data
-public class Registers {
+public class Registers implements RegistersInterface {
 
 	private final static int NUMBEROFREGISTERS = 32;
 	private int registers[];
@@ -31,10 +31,18 @@ public class Registers {
 	// Set register i to v.
 	// Precondition: 0 <= i <= NUMBEROFREGISTERS
 
+	/* (non-Javadoc)
+	 * @see sml.RegistersInterface#setRegister(int, int)
+	 */
+	@Override
 	public void setRegister(int i, int v) {
 		registers[i] = v;
 	}
 
+	/* (non-Javadoc)
+	 * @see sml.RegistersInterface#getRegister(int)
+	 */
+	@Override
 	public int getRegister(int i) {
 		return registers[i];
 	}

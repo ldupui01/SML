@@ -10,7 +10,7 @@ public interface MachineInterface {
 
 	public ArrayList<Instruction> getProg();
 
-	public Registers getRegisters();
+	public RegistersInterface getRegisters();
 
 	public void setLabels(Labels labels);
 

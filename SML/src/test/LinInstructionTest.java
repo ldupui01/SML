@@ -8,9 +8,8 @@ import org.junit.Test;
 
 import sml.Instruction;
 import sml.LinInstruction;
-import sml.Machine;
 import sml.MachineInterface;
-import sml.Registers;
+import sml.RegistersInterface;
 
 public class LinInstructionTest {
 	Instruction lin;
@@ -25,6 +24,7 @@ public class LinInstructionTest {
 	public final void testToString() {
 		String expected = "L1: lin register 0 value is 5";
 		String input = example;
+		System.out.println(example);
 		assertEquals("ToString Overriding not working properly or not implemented", expected, input);
 	}
 
@@ -32,7 +32,7 @@ public class LinInstructionTest {
 	public final void testExecute() {
 		//mocking
 		MachineInterface m = mock(MachineInterface.class);
-		Registers r = mock(Registers.class);
+		RegistersInterface r = mock(RegistersInterface.class);
 		when(m.getRegisters()).thenReturn(r);
 	
 		//input

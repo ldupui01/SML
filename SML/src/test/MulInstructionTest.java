@@ -9,7 +9,7 @@ import org.junit.Test;
 import sml.MulInstruction;
 import sml.Instruction;
 import sml.MachineInterface;
-import sml.Registers;
+import sml.RegistersInterface;
 
 public class MulInstructionTest {
 	Instruction mul;
@@ -32,7 +32,7 @@ public class MulInstructionTest {
 	public final void testExecute() {
 		//mocking
 		MachineInterface m = mock(MachineInterface.class);
-		Registers r = mock(Registers.class);
+		RegistersInterface r = mock(RegistersInterface.class);
 		when(r.getRegister(0)).thenReturn(5);//simulate register 0 has the value of 5
 		when(r.getRegister(1)).thenReturn(9);//simulate register 1 has the value of 9
 		when(m.getRegisters()).thenReturn(r);
