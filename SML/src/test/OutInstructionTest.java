@@ -7,45 +7,47 @@ import org.junit.Before;
 import org.junit.Test;
 
 import sml.Instruction;
-import sml.LinInstruction;
+import sml.OutInstruction;
 import sml.MachineInterface;
 import sml.RegistersInterface;
 
 public class OutInstructionTest {
-	Instruction lin;
+	Instruction out;
 	String example;
+	MachineInterface m; 
+	RegistersInterface r;
+	
 	@Before
 	public void setUp() throws Exception {
-		lin = spy(new LinInstruction("L1",0,5));
-		example = lin.toString();
+		out = spy(new OutInstruction("L1",0));
+		//mocking
+		m = mock(MachineInterface.class);
+		r = mock(RegistersInterface.class);
+		when(r.getRegister(0)).thenReturn(5);//simulate register 0 has the value of 5
+		when(m.getRegisters()).thenReturn(r);
+		//
+		out.execute(m);
+		example = out.toString();
+
 	}
 
 	@Test
 	public final void testToString() {
-		String expected = "L1: lin register 0 value is 5";
+		String expected = "L1: out register 0 value is 5";
 		String input = example;
-		System.out.println(example);
 		assertEquals("ToString Overriding not working properly or not implemented", expected, input);
 	}
 
 	@Test
 	public final void testExecute() {
-		//mocking
-		MachineInterface m = mock(MachineInterface.class);
-		RegistersInterface r = mock(RegistersInterface.class);
-		when(m.getRegisters()).thenReturn(r);
-	
-		//input
-		lin.execute(m);
-		
+		//mocking and expected taken care of at @Before
 		//test
-		
-		verify(m.getRegisters()).setRegister(0, 5);
-		
+		verify(m.getRegisters()).getRegister(0);
+
 	}
 
 	@Test
-	public final void testLinInstruction() {
+	public final void testOutInstruction() {
 		String[] expected = new String[3];
 		expected[0] = "L1:";
 		expected[1] = "0";
@@ -55,8 +57,8 @@ public class OutInstructionTest {
 		input[0] = exampleArray[0];
 		input[1] = exampleArray[3];
 		input[2] = exampleArray[6];
-		
-		assertTrue("LinInstruction is not an instance of instruction", lin instanceof Instruction);
+
+		assertTrue("OutInstruction is not an instance of instruction", out instanceof Instruction);
 		assertArrayEquals("label, register and parameter are not being translated properly",expected, input);
 	}
 
@@ -64,14 +66,14 @@ public class OutInstructionTest {
 	public final void testInstruction() {
 		String[] expected = new String[2];
 		expected[0] = "L1:";
-		expected[1] = "lin";
+		expected[1] = "out";
 		String[] exampleArray = example.split(" ");
 		String[] input = new String[2];
 		input[0] = exampleArray[0];
 		input[1] = exampleArray[1];
-	
-		
-		assertTrue("LinInstruction is not an instance of instruction", lin instanceof Instruction);
+
+
+		assertTrue("OutInstruction is not an instance of instruction", out instanceof Instruction);
 		assertArrayEquals("label and opcode are not being translated properly",expected, input);
 	}
 
