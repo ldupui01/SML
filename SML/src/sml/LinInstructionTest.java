@@ -1,7 +1,7 @@
 package sml;
 
 import static org.junit.Assert.*;
-
+import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ public class LinInstructionTest {
 	String example;
 	@Before
 	public void setUp() throws Exception {
-		lin = new LinInstruction("L1",0,5);
+		lin = spy(new LinInstruction("L1",0,5));
 		example = lin.toString();
 	}
 
@@ -23,17 +23,18 @@ public class LinInstructionTest {
 
 	@Test
 	public final void testExecute() {
-		//expected
-		int expected = 5;
-		
+		//mocking
+		Machine m = mock(Machine.class);
+		Registers r = mock(Registers.class);
+		when(m.getRegisters()).thenReturn(r);
+	
 		//input
-		Machine m = new Machine();
-		m.setRegisters(new Registers());
 		lin.execute(m);
-		int actual = m.getRegisters().getRegister(0);
 		
 		//test
-		assertEquals(expected, actual);
+		
+		verify(m.getRegisters()).setRegister(0, 5);
+		
 	}
 
 	@Test
