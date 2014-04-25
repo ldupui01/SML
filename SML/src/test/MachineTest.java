@@ -26,7 +26,7 @@ public class MachineTest {
 	/**
 	 * Test method for {@link sml.Machine#main(java.lang.String[])}.
 	 */
-	@Test
+	@Test(timeout = 1000)
 	public final void testMain() {
 		String[] textArray = new String[2];
 		textArray[0] = "testMML.txt";

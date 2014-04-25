@@ -76,4 +76,5 @@ public class Machine implements MachineInterface {
 			ins.execute(this);
 		}
 	}
+
 }

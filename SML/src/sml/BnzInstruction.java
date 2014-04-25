@@ -27,14 +27,15 @@ public class BnzInstruction extends Instruction {
 
 	@Override
 	public void execute(MachineInterface m) {
-		if(register != 0){
-			m.setPc(m.getProg().indexOf(nextLabel));
-			m.execute();
+		int value1 = m.getRegisters().getRegister(register);
+		if(value1 != 0){
+			
+			m.setPc(Integer.parseInt(String.valueOf(nextLabel.charAt(1))));
 		}
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + " next label being called is " + nextLabel;
+		return super.toString() + " next label being called is " + nextLabel + " until register " + register + " is 0";
 	}
 }
