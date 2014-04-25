@@ -48,6 +48,7 @@ public class Machine implements MachineInterface {
 
 		System.out.println("Values of registers at program termination:");
 		System.out.println(m.getRegisters() + ".");
+		
 	}
 
 	// Print the program

@@ -29,8 +29,7 @@ public class BnzInstruction extends Instruction {
 	public void execute(MachineInterface m) {
 		int value1 = m.getRegisters().getRegister(register);
 		if(value1 != 0){
-			
-			m.setPc(Integer.parseInt(String.valueOf(nextLabel.charAt(1))));
+			m.setPc(m.getLabels().indexOf(nextLabel));
 		}
 	}
 

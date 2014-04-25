@@ -44,6 +44,7 @@ public class Translator {
 		try {
 			line = sc.nextLine();
 		} catch (NoSuchElementException ioE) {
+			sc.close();
 			return false;
 		}
 
@@ -63,9 +64,11 @@ public class Translator {
 			try {
 				line = sc.nextLine();
 			} catch (NoSuchElementException ioE) {
+				sc.close();
 				return false;
 			}
 		}
+		sc.close();
 		return true;
 	}
 
@@ -158,4 +161,5 @@ public class Translator {
 			return Integer.MAX_VALUE;
 		}
 	}
+
 }
