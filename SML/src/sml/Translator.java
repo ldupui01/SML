@@ -105,10 +105,17 @@ public class Translator {
 			s1 = scanInt();
 			nextLabel = scan();
 			return new BnzInstruction(label, s1, nextLabel);
-		case "sub":
+		/*
+		  case "sub":
+		 
 			s1 = scanInt();
 			nextLabel = scan();
-			return new BnzInstruction(label, s1, nextLabel);
+			return new SubInstruction(label, s1, nextLabel);
+		case "div":
+			s1 = scanInt();
+			nextLabel = scan();
+			return new DivInstruction(label, s1, nextLabel);
+		*/
 		}
 
 		// You will have to write code here for the other instructions.
